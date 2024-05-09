@@ -11,27 +11,27 @@
 
 In this tutorial we will be building a website using Node.js, Svelte, and Vite.
 
-> **Note:** Note: Svelte is a beginner-friendly JavaScript web framework, offering powerful features to simplify web development. Learn more about Svelte at: https://svelte.dev.
+> Note: Svelte is a beginner-friendly JavaScript web framework, offering powerful features to simplify web development. Learn more about Svelte at: https://svelte.dev.
 
-> **Note:** Vite is a fast build tool for setting up our development environment and bundling our application. Learn more about Vite at: https://vitejs.dev
+> Note:Vite is a fast build tool for setting up our development environment and bundling our application. Learn more about Vite at: https://vitejs.dev
 
 ## Initialize The Project Using Vite
 
 Run this command in your console. Follow the instructions in the console to set up your Svelte project.
 
 ```bash
-$ npm create vite@latest
+npm create vite@latest
 ```
 
-> Note: We can clear app.css, App.svelte. and delete /lib/Counter.svelte
+> Note: We can clear app.css, App.svelte. and delete /lib/Counter.svelte in our project.
 
 # Firebase
 
-We'll be using Firebase, which provides several products to quickly get started with our project. In this phase we will only be using Firbase hosting to host our application on the web, and Firestore to quickly create a Nosql database, and will also allow us to sync data across all clients down the line.
+We'll be using Firebase, which provides several products to quickly get started with our project. In this phase we will only be using Firebase hosting to host our application on the web, and Firestore to quickly create a Nosql database, and will also allow us to sync data across all clients down the line.
 
-## Get Started WIth Firebase
+## Get Started With Firebase
 
-Visit the [Firebase website](https://firebase.) and click Get Started to start setting up the project
+Visit the [Firebase website](https://firebase.google.com) and click Get Started to start setting up the project
 
 ### 1. Click "Add project" And Follow The Steps
 
@@ -43,9 +43,9 @@ Visit the [Firebase website](https://firebase.) and click Get Started to start s
 
 After creating a Firebase project, you'll be directed to the Firebase console. In the sidebar, navigate to the "Build" submenu, where you'll find Firebase's array of products. Choose "Firestore Database" from the options and proceed to create your Firestore database.
 
-1.  When setting up Firestore, you'll be prompted to choose a location for your database. It's crucial to select a location closest to your clients to minimize latency. For our purposes, we'll opt for Los Angeles. Once set, the database location cannot be changed later. Choose wisely.
+1. When setting up Firestore, you'll be prompted to choose a location for your database. It's crucial to select a location closest to your clients to minimize latency. For our purposes, we'll opt for Los Angeles. Once selected, the database location cannot be changed later, so choose carefully
 
-2.  You'll then be asked to configure the security rules for the database. For convinience, we'll opt for test mode, allowing us to read and write data without authentication. However, it's important to note the security implications of this approach, which may not be suitable for production environments.
+2. You'll then be asked to configure the security rules for the database. For convinience, we'll opt for test mode, allowing us to read and write data without authentication. However, it's important to note the security implications of this approach, which may not be suitable for production environments.
 
 ![image](./images/database-security-rules.webp)
 
@@ -55,7 +55,7 @@ The resulting database structure will resemble the following:
 
 ![image](./images/data.webp)
 
-## Add a Web Application
+## Add Firebase To A Web Application
 
 Now that our database is set up and populated with data, let's move on to Adding Firebase to our web application.
 
@@ -68,7 +68,7 @@ Registering our web application will provide us with the necessary configuration
 
 ### 1. Register Your Application
 
-> ⚠️ ensure that "set up Firebase Hosting" is enabled, we want to set that up immediately.
+> Ensure that "Set up Firebase Hosting" is enabled. This step is crucial as Firebase Hosting provides fast and secure hosting for your web application, allowing you to deploy and serve your static and dynamic content with ease. Enabling Firebase Hosting will also ensure that your web application is accessible to users on the web.
 
 ![image](./images/firebase-add-web-app.webp)
 
@@ -85,7 +85,6 @@ Go to node project that we created earlier and open a new terminal in our projec
 > At this point, App.svelte should look like this:
 
 ```javascript
-
 // Script tags is where our javascript goes
 <script>
 // Import the functions you need from the SDKs you need
@@ -122,7 +121,7 @@ const analytics = getAnalytics(app);
   npm install firebase-tools
 ```
 
-> Note: This will be required to set up hosting. Its a powerful tool provided by Google Firebase to interact with Firebase services from the command line.
+> Note: This step is necessary to set up hosting. The Firebase Command Line Interface (CLI) is a powerful tool provided by Google Firebase to interact with Firebase services from the command line.
 
 #### Google Login
 
@@ -130,13 +129,15 @@ const analytics = getAnalytics(app);
 firebase login
 ```
 
+> Note: Logging in with your Google account using firebase login allows you to authenticate and access your Firebase projects from the command line.
+
 #### Initiate Your Project
 
 ```bash
   firebase init
 ```
 
-> This command will add hosting and Firestore to our project. You'll notice that Firebase will add files as it progresses. Since we're using Vite, and its build tool includes static files in the 'dist' directory, make sure to configure the public file to be 'dist' (can also be configured in /firebase.json). You can follow along with the console output below for guidance.
+> Note: Running firebase init will add hosting and Firestore to our project. You'll notice that Firebase will add files as it progresses. Since we're using Vite, and its build tool includes static files in the 'dist' directory, make sure to configure the public file to be 'dist' (can also be configured in /firebase.json). You can follow along with the console output below for guidance.
 
 ```bash
      ######## #### ########  ######## ########     ###     ######  ########
@@ -203,20 +204,20 @@ Run the following command.
 firebase deploy
 ```
 
-You should then get a sucess message like this:
+After successful deployment, you should receive a confirmation message like this:
 
 ```
 ✔  Deploy complete!
 
-Project Console: https://console.firebase.google.com/project/wedeliver-18a9a/overview
-Hosting URL: https://wedeliver-18a9a.web.app
+Project Console: https://console.firebase.google.com/project/example/overview
+Hosting URL: https://example.web.app
 ```
 
-We can paste the Hosting url in the browser to confirm.
+You can paste the Hosting URL in your browser to confirm that your website is live.
 
 ![image](./images/firebase-hosted-confirmation.webp)
 
-> Note: When we're prepared to deploy changes to our website, we'll utilize firebase deploy. However, for the time being, let's continue using our development environment until we're ready.
+> Note: When you're ready to deploy changes to your website, you'll utilize firebase deploy again. However, for the time being, let's continue using our development environment until we're ready.
 
 If you haven't initiated the Vite server previously, you can start it by executing the following command in your project directory:
 
@@ -243,7 +244,7 @@ import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 ```
 
-Append this function within the script tags in App.svelte
+Append this function within the script tags in 'App.svelte':
 
 ```js
 const initializeMap = async () => {
@@ -319,28 +320,6 @@ querySnapshot.forEach((doc) => {
 
 ![image](./images/map-with-markers.webp)
 
-<!-- # Update Our Website
-
-## 1. Bundle The Project Using Vite
-
-This will bundle our project for production and modify the files in /dist
-
-```bash
-npm run build
-```
-
-# Security Sensitive Data
-
-Lets avoid getting our senstivie data being stolen because we accidentaly sent it to the browser, to do this we will be using enviorment variables.
-
-## 2. Update Website Using Firebase cli
-
-If everything looks good in your vite development server, go ahead and update the changes to the web.
-
-```bash
-firebase deploy
-``` -->
-
 ## What We Learned
 
 ### Svelte + Vite Setup
@@ -363,11 +342,11 @@ firebase deploy
 - Leveraged Firestore SDK to read data from the database and dynamically create markers on the map.
 - Styled the map container using CSS to achieve the desired appearance.
 
-Congratulations !! That wasn't so scary right ? I hope you got to learn something new :)
+Congratulations !! That sums up this tutorial.
 
 # What's Next?
 
-For now we will avoid deploying our website to production to avoid exposing our sensitive data. 
+For now we will avoid deploying our website to production to avoid exposing our sensitive data.
 
 We'll address the challenge of securing API keys in our client-side projects. We'll explore using environment variables and other secure practices to keep our sensitive information safe.
 
