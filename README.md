@@ -341,10 +341,6 @@ If everything looks good in your vite development server, go ahead and update th
 firebase deploy
 ``` -->
 
-# Conclusion
-
-You Can now visit your website again to confirm your changes.
-
 ## What We Learned
 
 ### Svelte + Vite Setup
@@ -367,14 +363,11 @@ You Can now visit your website again to confirm your changes.
 - Leveraged Firestore SDK to read data from the database and dynamically create markers on the map.
 - Styled the map container using CSS to achieve the desired appearance.
 
-### Website Deployment
-
-- Bundled the project using Vite for production.
-- Updated the website using Firebase CLI, deploying changes to the live environment.
-
-Congratulations !! That wasn't so scary right ? I hope you got to learn something new :) Farewell !!!
+Congratulations !! That wasn't so scary right ? I hope you got to learn something new :)
 
 # What's Next?
+
+For now we will avoid deploying our website to production to avoid exposing our sensitive data. 
 
 We'll address the challenge of securing API keys in our client-side projects. We'll explore using environment variables and other secure practices to keep our sensitive information safe.
 
