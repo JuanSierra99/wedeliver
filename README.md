@@ -102,6 +102,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+
 </script>
 
 // Html
@@ -277,7 +278,7 @@ After the script tag in App.svelte, we can include the following to display and 
 <style>
   #map {
     height: 500px; /* Adjust the height as needed */
-    width: 100%; /* Adjust the width as needed */
+    width: 800px; /* Adjust the width as needed */
   }
 </style>
 ```
@@ -293,6 +294,13 @@ Import the Firestore sdk in App.svelte, we will use this to read from the Firest
 ```js
 import { getFirestore } from "firebase/firestore";
 import { collection, getDocs } from "firebase/firestore";
+```
+
+Then Initialize Firestore
+
+```javascript
+// Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(app);
 ```
 
 Then append the following javascript in our InitiateMap() function. This code will get the location data from our database, and use the data to create markers on our map:
